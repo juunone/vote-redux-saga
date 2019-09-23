@@ -42,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Vote for Everyone',
+      title: 'React redux-saga-test',
       showErrors: true,
       favicon: 'public/favicon.ico',
       template: path.join(__dirname, 'public', 'index.html'),

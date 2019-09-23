@@ -1,11 +1,10 @@
 {
-  "name": "react-vote",
-  "description": "📥This is for 'ALL THE PEOPLES' who want vote",
-  "version": "1.1.4",
+  "name": "redux-saga-test",
+  "description": "saga test",
+  "version": "1.0.0",
   "private": true,
   "author": "juunone",
   "license": "MIT",
-  "homepage": "https://react-vote.netlify.com",
   "main": "index.html",
   "proxy": "http://localhost:9999",
   "scripts": {
@@ -15,8 +14,8 @@
     "server": "node server.js"
   },
   "keywords": [
-    "vote",
-    "react-vote",
+    "redux",
+    "redux-saga",
     "react"
   ],
   "dependencies": {
