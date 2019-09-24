@@ -1,18 +1,18 @@
-import * as types from './ActionTypes'
+import * as types from '../actions/ActionTypes'
 import { all, put, takeEvery } from 'redux-saga/effects'
 
-export function* fetchDataStart() {
+function* fetchDataStart() {
   yield takeEvery(types.FETCH_DATA_START, fetching);
 }
 
-export function* fetchDataSuccess(data) {
+function* fetchDataSuccess(data) {
   yield put({ 
     type: types.FETCH_DATA_SUCCESS,
     payload: { data } 
   })
 }
 
-export function* fetchDataFailure(error) {
+function* fetchDataFailure(error) {
   yield put({ 
     type: types.FETCH_DATA_FAILURE,
     payload: { error }
@@ -34,7 +34,7 @@ export default function* rootSaga() {
   ])
 }
 
-export const fetchData = (method = 'GET', data, path = '') => {
+const fetchData = (method = 'GET', data, path = '') => {
   let id = "";
   if(method === 'PUT' || method === 'DELETE') id = data && data.id;
   let header = {'Content-Type':'application/json', 'Accept': 'application/json'};

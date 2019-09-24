@@ -1,34 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
-import createSagaMiddleware from 'redux-saga'
 
-import rootReducer from './reducers/index';
-import rootSaga from './actions/index';
+import App from './components/App';
+import configureStore from './store/configureStore'
+import rootSaga from './sagas'
 
-
-/* dev redux logger setting */
-let log = [];
-const initialState = {};
-if(
-  window.location &&
-  window.location.host &&
-  window.location.host.indexOf('localhost') !== -1){
-  const { logger } = require("redux-logger");
-  log.push(logger);
-}
-/* dev redux logger setting */
-
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  rootReducer,
-  initialState,
-  applyMiddleware(sagaMiddleware, ...log)
-);
-sagaMiddleware.run(rootSaga)
+const store = configureStore(window.__INITIAL_STATE__)
+store.runSaga(rootSaga)
 
 ReactDOM.render(
   <Provider store={store}>
