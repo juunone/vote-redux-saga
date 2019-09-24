@@ -1,9 +1,8 @@
 import * as types from './ActionTypes'
-
 import { all, put, takeEvery } from 'redux-saga/effects'
 
 export function* fetchDataStart() {
-  yield takeEvery(types.FETCH_DATA_START, fetchUser);
+  yield takeEvery(types.FETCH_DATA_START, fetching);
 }
 
 export function* fetchDataSuccess(data) {
@@ -20,14 +19,7 @@ export function* fetchDataFailure(error) {
   })
 }
 
-export function* getHeaderItems(headerType){
-  yield put({ 
-    type:types.HEADER_TYPE,
-    headerType: headerType
-  })
-}
-
-function* fetchUser(action) {
+function* fetching(action) {
   try {
     const data = yield fetchData(action.payload.method, action.payload.data, action.payload.path);
     yield fetchDataSuccess(data)
@@ -39,7 +31,6 @@ function* fetchUser(action) {
 export default function* rootSaga() {
   yield all([
     fetchDataStart(),
-    getHeaderItems()
   ])
 }
 

@@ -20,7 +20,7 @@ class VoteList extends Component{
   }
 
   _fetchData() {
-    this.props._handleFetchData('GET');
+    this.props._handleFetchData();
   }
 
   _handleDelete = (onClose, data) => {
