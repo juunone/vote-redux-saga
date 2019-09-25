@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js', './src/sass/main.scss', 'react-confirm-alert/src/react-confirm-alert.css', 'react-datepicker/dist/react-datepicker.css'],
@@ -41,6 +42,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default)
+      safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
+    }),
     new HtmlWebpackPlugin({
       title: 'React redux-saga-test',
       showErrors: true,
