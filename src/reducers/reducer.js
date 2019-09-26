@@ -2,7 +2,6 @@ import {
   FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE,
-  HEADER_TYPE,
 } from '../actions/ActionTypes';
 
 const intialState = {
@@ -59,11 +58,6 @@ export default (state = intialState, action) => {
       loading: false,
       error: String(action.payload.error),
       data: []
-    };
-  case HEADER_TYPE:        
-    return {
-      ...state,
-      headerType: action.headerType,
     };
   default:
     return state;
