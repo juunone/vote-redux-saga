@@ -7,11 +7,11 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = merge(common, {
   mode: 'production',  
   output: {
-    filename: '[name].[hash].bundle.js'
+    filename: '[name].[chunkhash].bundle.js'
   },
   devtool: 'source-map',
   plugins:[
-    new MiniCssExtractPlugin({ filename: '[name].[hash].style.css' }),
+    new MiniCssExtractPlugin({ filename: '[name].[chunkhash].style.css' }),
     new CleanWebpackPlugin(),
   ],
   optimization: {

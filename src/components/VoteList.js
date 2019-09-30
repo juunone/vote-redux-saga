@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import * as types from '../actions/ActionTypes'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner, faVoteYea } from '@fortawesome/free-solid-svg-icons'
-import Title from './common/Title';
-import Section from './common/Section';
-import Card from './common/Card';
-import Modal from './common/Modal';
 import { confirmAlert } from 'react-confirm-alert';
+import loadable from '@loadable/component';
+const Title = loadable(() => import(/* webpackChunkName: "Title" */'./common/Title'))
+const Section = loadable(() => import(/* webpackChunkName: "Section" */'./common/Section'))
+const Card = loadable(() => import(/* webpackChunkName: "Card" */'./common/Card'))
+const Modal = loadable(() => import(/* webpackChunkName: "Modal" */'./common/Modal'))
+
+
 
 class VoteList extends Component{
   constructor(props) {

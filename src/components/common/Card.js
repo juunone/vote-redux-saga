@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import loadable from '@loadable/component';
 import Button from './Button';
-import Line from './Line';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPoll } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
+const Line = loadable(() => import('./Line'))
 
 class Card extends Component{
   constructor(props){

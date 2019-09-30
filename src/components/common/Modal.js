@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
-import { FormErrors } from './FormErrors';
+import loadable from '@loadable/component'
 import DatePicker from "react-datepicker";
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faUser, faCheck, faVoteYea, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import Button from './Button';
+const FormErrors = loadable(() => import('./FormErrors'))
 
 export default class Modal extends Component{
   constructor(props){

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const FormErrors = ({formErrors}) => {
+const FormErrors = ({formErrors}) => {
   return (
     <div className='form-errors'>
       <p>{formErrors}</p>
@@ -12,3 +12,5 @@ export const FormErrors = ({formErrors}) => {
 FormErrors.propTypes = {
   formErrors: PropTypes.string, 
 };
+
+export default FormErrors;
